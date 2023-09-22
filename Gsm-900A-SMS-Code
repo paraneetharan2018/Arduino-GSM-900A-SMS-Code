@@ -1,1 +1,34 @@
+#include <SoftwareSerial.h>
+SoftwareSerial mySerial(7, 8);  // RX, TX (adjust pins as needed)
 
+void setup() {
+  mySerial.begin(9600);  // Initialize Serial Monitor
+  Serial.begin(9600);    // Initialize SoftwareSerial for SIM900
+
+  Serial.println("s-Send SMS\n\n");
+}
+
+void loop() {
+  if (Serial.available() > 0)
+    switch (Serial.read())
+  {
+    case 's':
+      SendMessage();
+      break;
+  }
+
+  if (mySerial.available() > 0) 
+    Serial.write(mySerial.read());  // Print response to Serial Monitor
+  }
+
+void SendMessage()
+{
+  mySerial.println("AT+CMGF=1");
+  delay(1000);
+  mySerial.println("AT+CMGS=\"+94768616049\"\r");
+  delay(1000);
+  mySerial.println("Poda Pundaaa");
+  delay(1000);
+  mySerial.println((char)26);
+  delay(1000);
+}
