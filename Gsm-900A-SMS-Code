@@ -25,9 +25,9 @@ void SendMessage()
 {
   mySerial.println("AT+CMGF=1");
   delay(1000);
-  mySerial.println("AT+CMGS=\"+94768616049\"\r");
+  mySerial.println("AT+CMGS=\"+94766865993\"\r");
   delay(1000);
-  mySerial.println("Poda Pundaaa");
+  mySerial.println("Hi, This is from GSM 900A Paranee");
   delay(1000);
   mySerial.println((char)26);
   delay(1000);
